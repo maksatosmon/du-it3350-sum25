@@ -1,0 +1,27 @@
+<div>
+  <canvas id="tempChart"></canvas>
+</div>
+<script>
+  const ctx = $('#tempChart');
+
+  // Web resources may change/disappear. Substitute as needed.
+  // Hourly Temperature Forecast from OpenMeteo: https://open-meteo.com/
+  // discovered via https://publicapis.dev/category/weather
+  getResponse('https://api.open-meteo.com/v1/forecast?latitude=39.6766174&longitude=-104.9618965&hourly=temperature_2m', (response) => {
+  	var hourlyForecast = response.hourly;
+  	var times = hourlyForecast.time;
+  	var temps = hourlyForecast.temperature_2m;
+  	new Chart(ctx, {
+	    type: 'line',
+	    data: {
+	    	labels: times,
+	    	datasets: [{
+	    		label: 'Hourly Temperatures (in Celsius)',
+	    		data: temps,
+	    	}]		  
+	    }
+	 });
+  });
+
+  
+</script>
