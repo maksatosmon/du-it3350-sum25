@@ -1,0 +1,25 @@
+<HTML>
+	<HEAD>
+		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+		<script src="../js/utils.js"></script>
+		
+		<style>
+			.randomDogImage {
+				width: 180px;
+				height: 180px;
+			}
+		</style>
+		<script>
+			// Web resources may change/disappear. Substitute as needed.
+			// https://dog.ceo/dog-api/
+			// discovered via https://publicapis.dev/search?q=dogs
+			getResponse(
+				'https://dog.ceo/api/breeds/image/random', 
+				(response) => $('.randomDogImage').attr('src', response.message)
+			);
+		</script>
+	</HEAD>
+	<BODY>
+		<img class='randomDogImage' />
+	</BODY>
+</HTML>
