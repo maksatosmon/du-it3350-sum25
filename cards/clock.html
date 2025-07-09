@@ -9,6 +9,7 @@
 				border-color: gray;
 				border-style: solid;
 				position: relative;
+				margin: auto;
 			}
 			.armVertex {
 				width: 15px;
@@ -21,26 +22,15 @@
 			}
 			.numberText {
 				position: absolute;
-				color: rgb(230, 31, 180);
+				color: green;
 				font-weight: bold;
 				font-size: 24px;
 			}
-			.twelve {
-				top: 5px;
-				left: 77px;
-			}
-			.three {
-				top: 77px;
-				left: 167px;
-			}
-			.six {
-				top: 155px;
-				left: 84px;
-			}
-			.nine {
-				top: 77px;
-				left: 5px;
-			}
+			.twelve { top: 5px; left: 77px; }
+			.three { top: 77px; left: 167px; }
+			.six { top: 155px; left: 84px; }
+			.nine { top: 77px; left: 5px; }
+
 			.hourArm {
 				width: 3px;
 				height: 50px;
@@ -49,7 +39,6 @@
 				left: 90px;
 				background-color: black;
 				transform-origin: bottom;
-				transform: rotate(0deg);
 			}
 			.minuteArm {
 				width: 2px;
@@ -59,7 +48,6 @@
 				left: 90px;
 				background-color: black;
 				transform-origin: bottom;
-				transform: rotate(0deg);
 			}
 			.secondArm {
 				width: 1px;
@@ -69,7 +57,13 @@
 				left: 90px;
 				background-color: black;
 				transform-origin: bottom;
-				transform: rotate(0deg);
+			}
+			#digitalTime {
+				text-align: center;
+				font-size: 1.2em;
+				font-weight: bold;
+				margin-top: 15px;
+				color: #333;
 			}
 		</style>
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
@@ -86,6 +80,8 @@
 			<div class="numberText nine">9</div>
 		</div>
 
+		<div id="digitalTime"></div>
+
 		<script>
 			function tick() {
 				var time = new Date();
@@ -95,12 +91,13 @@
 
 				$('.secondArm').css('transform', 'rotate(' + (360 * seconds / 60) + 'deg)');
 				$('.minuteArm').css('transform', 'rotate(' + (360 * minutes / 60) + 'deg)');
-				$('.hourArm').css('transform', 'rotate(' + (360 * hours / 12) + 'deg)');
+				$('.hourArm').css('transform', 'rotate(' + (360 * ((hours % 12) + minutes / 60) / 12) + 'deg)');
 
-				console.log(seconds + ' seconds');
+				const formatted = time.toLocaleTimeString();
+				document.getElementById("digitalTime").innerText = formatted;
 			}
-			// Update arm angles every second (1000 milliseconds).
 			setInterval(tick, 1000);
+			tick(); // initial run
 		</script>
 	</BODY>
 </HTML>

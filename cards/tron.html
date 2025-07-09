@@ -163,7 +163,7 @@
 				// Create an image data array for a single pixel.
 				imageData = context.createImageData(1, 1);
 				// Set that single pixel to be green.				
-				setPixel(imageData, 0, 0, 0, 255, 0);
+				setPixel(imageData, 100, 0, 0, 255, 0);
 				// Commit the change by writing single pixel to the board at the current position of the player.
 				context.putImageData(imageData, player1X, player1Y);
 
@@ -172,7 +172,7 @@
 				// Create an image data array for a single pixel.
 				imageData = context.createImageData(1, 1);
 				// Set that single pixel to be blue.
-				setPixel(imageData, 0, 0, 0, 0, 255);
+				setPixel(imageData, 0, 100, 0, 0, 255);
 				// Commit the change by writing single pixel to the board at the current position of the player.
 				context.putImageData(imageData, player2X, player2Y);
 			}

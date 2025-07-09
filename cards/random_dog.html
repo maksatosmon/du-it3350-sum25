@@ -2,17 +2,16 @@
 	<HEAD>
 		<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 		<script src="../js/utils.js"></script>
-		
 		<style>
 			.randomCatImage {
 				width: 180px;
 				height: 180px;
+				object-fit: cover;
+				border-radius: 12px;
+				box-shadow: 0 0 8px #aaa;
 			}
 		</style>
 		<script>
-			// Web resources may change/disappear. Substitute as needed.
-			// https://dog.ceo/dog-api/
-			// discovered via https://publicapis.dev/search?q=dogs
 			getResponse(
 				'https://api.thecatapi.com/v1/images/search', 
 				(response) => $('.randomCatImage').attr('src', response[0].url)
@@ -20,6 +19,6 @@
 		</script>
 	</HEAD>
 	<BODY>
-		<img class='randomCatImage' />
+		<img class='randomCatImage' alt="Random Cat Image" />
 	</BODY>
 </HTML>
