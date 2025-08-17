@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>AQI Widget</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="../css/aqi_style.css" />
+</head>
+<body>
+  <main class="viewport">
+    <div class="widget" id="aqiWidget">
+      <h2 id="city">City: --</h2>
+
+      <!-- Live-updating values for screen readers -->
+      <p id="aqi" aria-live="polite">AQI: --</p>
+      <p id="status" aria-live="polite">Status: --</p>
+
+      <!-- Descriptive alt for accessibility -->
+      <img id="icon" alt="Air quality status icon" style="width: 56px; display: none;" />
+
+      <div class="controls">
+        <!-- Hidden label for SR; keeps visual clean -->
+        <label for="aqiInput" class="sr-only">Enter AQI value</label>
+        <input
+          type="text"
+          id="aqiInput"
+          placeholder="Enter AQI (0–300)"
+          inputmode="numeric"
+        />
+        <button id="btnSubmit" type="button">Submit</button>
+        <button id="btnRandom" type="button">Random</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/aqi_script.js"></script>
+</body>
+</html>

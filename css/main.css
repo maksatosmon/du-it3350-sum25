@@ -1,18 +1,16 @@
-.cardContainer {
-	display: flex;
-	flex: 1;
-	flex-wrap: wrap;
+/* Full-page layout for a single card */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
-iframe.card {
-	border-radius: 15px;
-	border-width: 2;
-	border-color: black;
-	border-style: solid;
-	width: 200px;
-	height: 200px;
-  	display: flex;
-  	justify-content: center;
-  	align-items: center;
-  	margin: 20px;
+.card-full {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+  border: 0;
 }
+
+/* Optional: prevent scrollbars on small rounding differences */
+body { overflow: hidden; }
